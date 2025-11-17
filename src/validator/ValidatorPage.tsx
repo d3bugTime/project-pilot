@@ -2,11 +2,16 @@ import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../App.css";
-import ValidatorLogic from "./ValidatorLogic.tsx";
-import type {SyntheticEvent} from "react";
+import ValidatorLogic, {type message} from "./ValidatorLogic.tsx";
+import {type SyntheticEvent, useState} from "react";
 
 export default function ValidatorPage() {
-
+    
+    const [currentMessage, setCurrentMessage] = useState<message>({
+        validation: false,
+        outputMessage: ""
+    });
+    
     function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
         // Prevent the browser from reloading the page
         event.preventDefault();
@@ -20,7 +25,9 @@ export default function ValidatorPage() {
         const passwordInput = formData.get("passwordInput");
         console.log(passwordInput);
         
-        ValidatorLogic(passwordInput as string);
+        const outputMessage: message = ValidatorLogic(passwordInput as string);
+        
+        setCurrentMessage(outputMessage);
         
         return false;
     }
@@ -40,11 +47,10 @@ export default function ValidatorPage() {
                             <Button type="submit" variant="contained">Validate</Button>
                         </div><br/>
 
-                        <div className={"red-label"}>
-
-                        </div>
-                        <div className={"green-label"}>
-
+                        <div className={
+                            currentMessage.validation ? "green-label" : "red-label"
+                        }>
+                            {currentMessage.outputMessage}
                         </div>
                     </div>
                 </Card>    

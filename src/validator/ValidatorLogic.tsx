@@ -1,7 +1,15 @@
-export default function ValidatorLogic(password: string) {
+import {vulnerablePasswords} from "./VulnerablePasswords.tsx";
+
+export interface message {
+    validation: boolean;
+    outputMessage: string;
+}
+
+export default function ValidatorLogic(password: string): message {
     const passwordChecker: string[] = password.split("");
     let counter: number = 0;
-
+    let value: message;
+    
     // console.log(password.length);
 
     if (passwordChecker.length > 7) {
@@ -13,13 +21,18 @@ export default function ValidatorLogic(password: string) {
 
         if (counter >= 3) {
             // console.log(counter);
-            console.log("Password aceptado");
+            if (!vulnerablePasswords.includes(password)) {
+                value = { validation: true, outputMessage: "Password valido" };
+            } else {
+                value = { validation: false, outputMessage: "Password hackeado" };
+            }
+            
         } else {
-            console.log("Minimo 3 digitos");
+            value = { validation: false, outputMessage: "Minimo 3 digitos" };
         }
     } else {
-        console.log("Minimo 8 caracteres");
+        value = { validation: false, outputMessage: "Minimo 8 caracteres" };
     }
 
-    return "Procesando...";
+    return value;
 }
