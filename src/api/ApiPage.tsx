@@ -2,6 +2,7 @@ import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../App.css";
+import Search from "./search.ts";
 
 export default function ApiPage() {
 
@@ -42,7 +43,7 @@ export default function ApiPage() {
                     </div>
                     <div className={"spacing row center-align"}>
                         <Card variant="outlined" sx={{ width: "100%" }}>
-                            Descripción
+                            <Search />
                         </Card>
                     </div>
                 </div>
