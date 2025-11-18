@@ -1,4 +1,4 @@
-import {vulnerablePasswords} from "./VulnerablePasswords.tsx";
+import {vulnerablePasswords} from "./VulnerablePasswords.ts";
 
 export interface message {
     validation: boolean;

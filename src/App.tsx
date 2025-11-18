@@ -11,7 +11,8 @@
 //     { id: 5, name: "kiwi" },
 // ]
 
-import ValidatorPage from "./validator/ValidatorPage.tsx";
+// import ValidatorPage from "./validator/ValidatorPage.tsx";
+import ApiPage from "./api/ApiPage.tsx";
 
 export default function App() {
     
@@ -20,13 +21,14 @@ export default function App() {
     // }
     
     return (
-        <div className="container">
+        <div>
             {/*<ProjectsPage />*/}
             {/*<Greeter first={"Jon"} last={"Doe"} />*/}
             {/*<Hello name={"Joe"} enthusiasmLevel={1} />*/}
             {/*<FruitList fruits={data} />*/}
             {/*<button onClick={handleClick}>Click Me!</button>*/}
-            <ValidatorPage />
+            {/*<ValidatorPage />*/}
+            <ApiPage />
         </div>
     );
 }
