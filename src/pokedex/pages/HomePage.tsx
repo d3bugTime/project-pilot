@@ -1,11 +1,11 @@
 import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import "../App.css";
+import "../../App.css";
 import {useEffect} from "react";
-import {searchPokemon} from "./search.ts";
+import {searchPokemon} from "../api/search.api.ts";
 
-export default function ApiPage() {
+export default function HomePage() {
     
     useEffect(() => {
         const getPokemon = async () => {

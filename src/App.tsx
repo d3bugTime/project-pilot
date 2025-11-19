@@ -11,7 +11,7 @@
 // ]
 
 // import ValidatorPage from "./validator/ValidatorPage.tsx";
-import ApiPage from "./pokedex/ApiPage.tsx";
+import HomePage from "./pokedex/pages/HomePage.tsx";
 
 export default function App() {
     
@@ -26,7 +26,7 @@ export default function App() {
             {/*<FruitList fruits={data} />*/}
             {/*<button onClick={handleClick}>Click Me!</button>*/}
             {/*<ValidatorPage />*/}
-            <ApiPage />
+            <HomePage />
         </div>
     );
 }
