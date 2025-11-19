@@ -5,6 +5,7 @@ export default function ProjectsPage() {
         <>
             <h1>Projects</h1>
             <pre>
+                {/*Hard coded data*/}
                 {JSON.stringify(MOCK_PROJECTS, null, ' ')}
             </pre>
         </>

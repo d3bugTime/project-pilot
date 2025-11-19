@@ -2,9 +2,19 @@ import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../App.css";
-import Search from "./search.ts";
+import {useEffect} from "react";
+import {searchPokemon} from "./search.ts";
 
 export default function ApiPage() {
+    
+    useEffect(() => {
+        const getPokemon = async () => {
+            const pokemon = await searchPokemon();
+            console.log(pokemon);
+        }
+        getPokemon()
+            .catch(console.error);
+    }, []);
 
     return (
         <>
@@ -43,7 +53,6 @@ export default function ApiPage() {
                     </div>
                     <div className={"spacing row center-align"}>
                         <Card variant="outlined" sx={{ width: "100%" }}>
-                            <Search />
                         </Card>
                     </div>
                 </div>

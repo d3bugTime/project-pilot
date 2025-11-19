@@ -20,7 +20,7 @@ const apiUrl: string = import.meta.env.VITE_API_URL;
 //     return "Search..."
 // }
 
-export default async function Search() {
+export async function searchPokemon() {
     try {
        const response = await axios.get(apiUrl + "pokemon/ditto"); 
        return response.data;
