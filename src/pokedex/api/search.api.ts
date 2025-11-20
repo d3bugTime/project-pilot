@@ -1,4 +1,5 @@
 import axios from "axios";
+import type {PokemonFeatures} from "../model/pokemon.model.ts";
 
 const apiUrl: string = import.meta.env.VITE_API_URL;
 
@@ -22,8 +23,10 @@ const apiUrl: string = import.meta.env.VITE_API_URL;
 
 export async function searchPokemon() {
     try {
-       const response = await axios.get(apiUrl + "pokemon/ditto"); 
-       return response.data;
+       const response = await axios.get<PokemonFeatures>(apiUrl + "pokemon/ditto");
+       const feature: PokemonFeatures = response.data;
+       // console.log("Features:", feature);
+       return feature;
     } catch (error) {
         console.log(error);
     }
