@@ -1,4 +1,4 @@
-import {MOCK_PROJECTS} from "./MockProjects.ts";
+import {MOCK_PROJECTS} from "./mockProjects.ts";
 
 export default function ProjectsPage() {
     return (

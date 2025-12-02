@@ -2,7 +2,7 @@ import Card from "@mui/material/Card";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import "../App.css";
-import ValidatorLogic, {type message} from "./ValidatorLogic.ts";
+import ValidatorLogic, {type message} from "./validatorLogic.ts";
 import {type SyntheticEvent, useState} from "react";
 
 export default function ValidatorPage() {
