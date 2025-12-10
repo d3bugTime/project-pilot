@@ -44,6 +44,28 @@ export default function HomePage() {
         
     }
     
+    const nameFormat = (name: string): string => {
+        return name.charAt(0).toUpperCase() + name.slice(1);
+    }
+    
+    const numberFormat = (id: number): string => {
+        if (id < 10) {
+            return "000" + id;
+        } else if (id < 100) {
+            return "00" + id;
+        } else {
+           return "0" + id;
+        }
+    }
+    
+    const heightFormat = (height: number): string => {
+        return (height / 10) + " m";
+    }
+    
+    const weightFormat = (weight: number): string => {
+        return (weight / 10).toFixed(1) + " kg";
+    }
+    
     return (
         <>
             <Card variant="outlined" className={"container"}>
@@ -100,12 +122,12 @@ export default function HomePage() {
                                 {/* Second column - Details */}
                                 <Card variant="outlined" sx={{p: 2}}>
                                     <Typography variant="subtitle2" className="gray-title">Name</Typography>
-                                    <Typography>{pokemonData?.name}</Typography>
+                                    <Typography>{pokemonData?.name ? nameFormat(pokemonData.name) : ""}</Typography>
                                     <Typography variant="subtitle2" className="gray-title">Number</Typography>
-                                    <Typography>{pokemonData?.id}</Typography>
+                                    <Typography>{pokemonData?.id ? numberFormat(pokemonData.id) : 0}</Typography>
                                     <Typography variant="subtitle2" className="gray-title">Type</Typography>
                                     <Typography>{pokemonData?.types
-                                        .map(typeItem => typeItem.type.name)
+                                        .map(typeItem => typeItem.type.name.toUpperCase())
                                         .join(', ')}
                                     </Typography>
                                     <Typography variant="subtitle2" className="gray-title">Species</Typography>
@@ -115,9 +137,9 @@ export default function HomePage() {
                                 {/* Third column - Details */}
                                 <Card variant="outlined" sx={{p: 2}}>
                                     <Typography variant="subtitle2" className="gray-title">Height</Typography>
-                                    <Typography>#{pokemonData?.height}</Typography>
+                                    <Typography>{pokemonData?.height ? heightFormat(pokemonData.height) : 0}</Typography>
                                     <Typography variant="subtitle2" className="gray-title">Weight</Typography>
-                                    <Typography>#{pokemonData?.weight}</Typography>
+                                    <Typography>{pokemonData?.weight ? weightFormat(pokemonData.weight) : 0}</Typography>
                                     <Typography variant="subtitle2" className="gray-title">Abilities</Typography>
                                     <Typography>{pokemonData?.abilities
                                         .map(typeAbility => typeAbility.ability.name)
