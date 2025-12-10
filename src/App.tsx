@@ -12,11 +12,11 @@
 // ]
 
 // import ValidatorPage from "./validator/ValidatorPage.tsx";
-// import ApiPage from "./api/ApiPage.tsx";
+import PokeApi from "./pokedex/pages/HomePage";
 
 // import TodoList from "./examples/TodoList.tsx";
 // import Profile from "./examples/Profile.tsx";
-import PackingList from "./examples/PackingList.tsx";
+// import PackingList from "./examples/PackingList.tsx";
 
 export default function App() {
     
@@ -32,10 +32,10 @@ export default function App() {
             {/*<FruitList fruits={data} />*/}
             {/*<button onClick={handleClick}>Click Me!</button>*/}
             {/*<ValidatorPage />*/}
-            {/*<ApiPage />*/}
+            <PokeApi />
             {/*<TodoList />*/}
             {/*<Profile />*/}
-            <PackingList />
+            {/*<PackingList />*/}
         </div>
     );
 }
