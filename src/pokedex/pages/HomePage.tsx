@@ -16,8 +16,6 @@ export default function HomePage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     
-    const imageUrl: string | undefined = pokemonData?.sprites?.other?.["official-artwork"]?.front_default;
-    
     // Input detection
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value;
@@ -86,87 +84,55 @@ export default function HomePage() {
 
                     </div>
 
-                    {/*Result Grid*/}
-                    {/*<div className={"spacing row full-width center-align"}>*/}
-                    {/*    <Card variant="outlined" sx={{ width: "100%" }}>*/}
-                    {/*        /!*Image*!/*/}
-                    {/*        {imageUrl && <img*/}
-                    {/*            src={imageUrl}*/}
-                    {/*            alt="Pokemon Picture"*/}
-                    {/*            height="50%" */}
-                    {/*            width="50%"*/}
-                    {/*        />}*/}
-                    {/*    </Card>*/}
-                    {/*</div>*/}
-                    {/*<div className={"spacing row center-align"}>*/}
-                    {/*    <Card variant="outlined" sx={{ width: "100%" }}>*/}
-                    {/*        {pokemonData && (*/}
-                    {/*            */}
-                    {/*        )}*/}
-                    {/*    </Card>*/}
-                    {/*</div>*/}
-
-                    {/*
-                        GRID
-                        first column:
-                        - Image
-                        second column:
-                        - Name
-                        - Number
-                        - Type
-                        - Species
-                        third column:
-                        - Height
-                        - Weight
-                        - Abilities
-                        - Base stats
-                    */}
-
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1rem', marginTop: '1rem' }}>
-                        {/* Left side - Image */}
-                        <Card variant="outlined" sx={{ p: 2 }}>
-                            {imageUrl && <img
-                                src={pokemonData?.sprites.other["official-artwork"].front_default}
-                                alt="Pokemon"
-                                style={{ width: '100%', height: 'auto' }}
-                            />}
-                        </Card>
-
-                        {/* Right side - Details */}
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-                            <Card variant="outlined" sx={{ p: 2 }}>
-                                <Typography variant="subtitle2">Name</Typography>
-                                <Typography>{pokemonData?.name}</Typography>
-                                <Typography variant="subtitle2">Number</Typography>
-                                <Typography>{pokemonData?.id}</Typography>
-                                <Typography variant="subtitle2">Type</Typography>
-                                <Typography>{pokemonData?.types
-                                    .map(typeItem => typeItem.type.name)
-                                    .join(', ')}
-                                </Typography>
-                                <Typography variant="subtitle2">Species</Typography>
-                                <Typography>{pokemonData?.species.name}</Typography>
+                    {/* Data Section */}
+                    {pokemonData && (
+                        <div style={{display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '1rem', marginTop: '1rem'}}>
+                            {/* First column - Image */}
+                            <Card variant="outlined" sx={{p: 2}}>
+                                <img
+                                    src={pokemonData?.sprites.other["official-artwork"].front_default}
+                                    alt="Pokemon"
+                                    style={{width: '100%', height: 'auto'}}
+                                />
                             </Card>
 
-                            <Card variant="outlined" sx={{ p: 2 }}>
-                                <Typography variant="subtitle2">Height</Typography>
-                                <Typography>#{pokemonData?.height}</Typography>
-                                <Typography variant="subtitle2">Weight</Typography>
-                                <Typography>#{pokemonData?.weight}</Typography>
-                                <Typography variant="subtitle2">Abilities</Typography>
-                                <Typography>{pokemonData?.abilities
-                                    .map(typeAbility => typeAbility.ability.name)
-                                    .join(', ')}
-                                </Typography>
-                                <Typography variant="subtitle2">Base Stats</Typography>
-                                <Typography>{pokemonData?.stats
-                                    .map(baseStat => baseStat.stat.name)
-                                    .join(', ')}
-                                </Typography>
-                            </Card>
-                            
+                            <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem'}}>
+                                {/* Second column - Details */}
+                                <Card variant="outlined" sx={{p: 2}}>
+                                    <Typography variant="subtitle2" className="gray-title">Name</Typography>
+                                    <Typography>{pokemonData?.name}</Typography>
+                                    <Typography variant="subtitle2" className="gray-title">Number</Typography>
+                                    <Typography>{pokemonData?.id}</Typography>
+                                    <Typography variant="subtitle2" className="gray-title">Type</Typography>
+                                    <Typography>{pokemonData?.types
+                                        .map(typeItem => typeItem.type.name)
+                                        .join(', ')}
+                                    </Typography>
+                                    <Typography variant="subtitle2" className="gray-title">Species</Typography>
+                                    <Typography>{pokemonData?.species.name}</Typography>
+                                </Card>
+
+                                {/* Third column - Details */}
+                                <Card variant="outlined" sx={{p: 2}}>
+                                    <Typography variant="subtitle2" className="gray-title">Height</Typography>
+                                    <Typography>#{pokemonData?.height}</Typography>
+                                    <Typography variant="subtitle2" className="gray-title">Weight</Typography>
+                                    <Typography>#{pokemonData?.weight}</Typography>
+                                    <Typography variant="subtitle2" className="gray-title">Abilities</Typography>
+                                    <Typography>{pokemonData?.abilities
+                                        .map(typeAbility => typeAbility.ability.name)
+                                        .join(', ')}
+                                    </Typography>
+                                    <Typography variant="subtitle2" className="gray-title">Base Stats</Typography>
+                                    <Typography>{pokemonData?.stats
+                                        .map(baseStat => baseStat.stat.name)
+                                        .join(', ')}
+                                    </Typography>
+                                </Card>
+
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </Card>
         </>

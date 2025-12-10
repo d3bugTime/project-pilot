@@ -73,3 +73,8 @@
     margin: 20px;
     border-radius: 50%;
 }
+
+.gray-title {
+    color: #999289;
+    font-weight: 100;
+}
